@@ -20,7 +20,7 @@ export class UsersController {
     constructor(private readonly usersService: UsersService) {}
 
     @Post()
-    @ApiOperation({ description: 'Créé un nouvelle utilisateur' })
+    @ApiOperation({ description: 'Créé un nouvel utilisateur' })
     async create(@Body() createUserDto: CreateUserDto) {
         try {
             let user = await this.usersService.create(createUserDto);
