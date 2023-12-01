@@ -28,3 +28,9 @@ Exécuter le serveur :
 Pour exécuter le serveur en mode "watch" (surveillance des modifications apportées aux fichiers et redémarrage du serveur automatique) :
 
     $ npm run start:dev
+
+## Documentation de l'API
+
+La documentation complète de l'API (générée par [Swagger](https://docs.nestjs.com/openapi/introduction)) est disponible à cette adresse :
+
+    http://localhost:3000/api
