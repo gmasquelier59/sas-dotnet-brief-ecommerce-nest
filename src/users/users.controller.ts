@@ -69,13 +69,30 @@ export class UsersController {
     }
 
     @Patch(':uuid')
-    async update(@Param('uuid') uuid: string, @Body() updateUserDto: UpdateUserDto) {
-        let user = await this.usersService.updateByUUID(uuid, updateUserDto);
+    async update(
+        @Param('uuid') uuid: string,
+        @Body() updateUserDto: UpdateUserDto,
+    ) {
+        try {
+            let user = await this.usersService.updateByUUID(
+                uuid,
+                updateUserDto,
+            );
 
-        return JSONResponse.toJSON(
-            "Données de l'utilisateur mises à jour avec succès",
-            user,
-        );
+            return JSONResponse.toJSON(
+                "Données de l'utilisateur mises à jour avec succès",
+                user,
+            );
+        } catch (error) {
+            throw new HttpException(
+                {
+                    data: error,
+                    message:
+                        "Une erreur est survenue lors de la mise à jour de l'utilisateur",
+                },
+                HttpStatus.NOT_FOUND,
+            );
+        }
     }
 
     @Delete(':uuid')
