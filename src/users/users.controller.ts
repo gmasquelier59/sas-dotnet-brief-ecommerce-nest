@@ -12,12 +12,15 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import JSONResponse from 'src/utils/jsonresponse';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @Controller('users')
+@ApiTags('Users')
 export class UsersController {
     constructor(private readonly usersService: UsersService) {}
 
     @Post()
+    @ApiOperation({ description: 'Créé un nouvelle utilisateur' })
     async create(@Body() createUserDto: CreateUserDto) {
         try {
             let user = await this.usersService.create(createUserDto);
@@ -39,6 +42,7 @@ export class UsersController {
     }
 
     @Get()
+    @ApiOperation({ description: 'Retourne la liste de tous les utilisateurs' })
     async findAll() {
         let users = await this.usersService.findAll();
 
@@ -49,6 +53,10 @@ export class UsersController {
     }
 
     @Get(':uuid')
+    @ApiOperation({
+        description:
+            "Obtient les informations d'un utilisateur depuis son UUID",
+    })
     async getByUUID(@Param('uuid') uuid: string) {
         let user = await this.usersService.getByUUID(uuid);
 
@@ -69,6 +77,7 @@ export class UsersController {
     }
 
     @Patch(':uuid')
+    @ApiOperation({ description: 'Met à jour un utilisateur depuis son UUID' })
     async update(
         @Param('uuid') uuid: string,
         @Body() updateUserDto: UpdateUserDto,
@@ -96,6 +105,7 @@ export class UsersController {
     }
 
     @Delete(':uuid')
+    @ApiOperation({ description: 'Supprime un utilisateur depuis son UUID' })
     async deleteByUUID(@Param('uuid') uuid: string) {
         try {
             let user = await this.usersService.deleteByUUID(uuid);

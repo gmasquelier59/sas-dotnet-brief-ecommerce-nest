@@ -32,6 +32,9 @@ dependencies:
   rxjs:
     specifier: ^7.8.1
     version: 7.8.1
+  swagger-themes:
+    specifier: ^1.2.30
+    version: 1.2.30
 
 devDependencies:
   '@nestjs/cli':
@@ -4924,6 +4927,10 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
+
+  /swagger-themes@1.2.30:
+    resolution: {integrity: sha512-OOk1gMfu50knSui4ncnOGtQEw8snOkMCLiOWVLqO0IT1SNYJC83MBWtRwMWSYmaC+m51XdNBlZ030T4t6viNvg==}
+    dev: false
 
   /swagger-ui-dist@5.9.1:
     resolution: {integrity: sha512-5zAx+hUwJb9T3EAntc7TqYkV716CMqG6sZpNlAAMOMWkNXRYxGkN8ADIvD55dQZ10LxN90ZM/TQmN7y1gpICnw==}
