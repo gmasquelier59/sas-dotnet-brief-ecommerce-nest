@@ -14,11 +14,13 @@ export class UsersService {
                 Mail: createUserDto.mail,
             },
         });
+        
         return user;
     }
 
     async findAll() {
         const users = await this.prisma.users.findMany();
+
         return users;
     }
 
@@ -32,8 +34,18 @@ export class UsersService {
         return user;
     }
 
-    update(id: number, updateUserDto: UpdateUserDto) {
-        return `This action updates a #${id} user`;
+    async updateByUUID(uuid: string, updateUserDto: UpdateUserDto) {
+        const user = await this.prisma.users.update({
+            data: {
+                Pseudo: updateUserDto.pseudo,
+                Mail: updateUserDto.mail
+            },
+            where: {
+                UUID: uuid,
+            },
+        });
+
+        return user;
     }
 
     async deleteByUUID(uuid: string) {

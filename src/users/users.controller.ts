@@ -30,9 +30,9 @@ export class UsersController {
         return this.usersService.getByUUID(uuid);
     }
 
-    @Patch(':id')
-    update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-        return this.usersService.update(+id, updateUserDto);
+    @Patch(':uuid')
+    update(@Param('uuid') uuid: string, @Body() updateUserDto: UpdateUserDto) {
+        return this.usersService.updateByUUID(uuid, updateUserDto);
     }
 
     @Delete(':uuid')
