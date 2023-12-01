@@ -20,4 +20,24 @@ export class CreateUserDto {
     @IsNotEmpty()
     @MaxLength(75)
     mail: string;
+
+    @ApiProperty({
+        description: "Nom d'utilisateur de l'utilisateur",
+        required: true,
+        maximum: 20,
+    })
+    @IsString()
+    @IsNotEmpty()
+    @MaxLength(20)
+    username: string;
+
+    @ApiProperty({
+        description: "Mot de passe de l'utilisateur",
+        required: true,
+        maximum: 50,
+    })
+    @IsString()
+    @IsNotEmpty()
+    @MaxLength(50)
+    password: string;
 }
