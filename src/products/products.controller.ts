@@ -53,9 +53,27 @@ export class ProductsController {
         );
     }
 
-    @Get(':id')
-    findOne(@Param('id') id: string) {
-        return this.productsService.findOne(+id);
+    @Get(':uuid')
+    @ApiOperation({
+        description: "Obtient les informations d'un produit depuis son UUID",
+    })
+    async getByUUID(@Param('uuid') uuid: string) {
+        let product = await this.productsService.getByUUID(uuid);
+
+        if (product == null) {
+            throw new HttpException(
+                {
+                    data: '',
+                    message: 'Produit non trouvé',
+                },
+                HttpStatus.NOT_FOUND,
+            );
+        }
+
+        return JSONResponse.toJSON(
+            'Données du produit obtenues avec succès',
+            product,
+        );
     }
 
     @Patch(':uuid')
@@ -71,7 +89,7 @@ export class ProductsController {
             );
 
             return JSONResponse.toJSON(
-                "Données du produit mises à jour avec succès",
+                'Données du produit mises à jour avec succès',
                 product,
             );
         } catch (error) {
@@ -79,7 +97,7 @@ export class ProductsController {
                 {
                     data: error,
                     message:
-                        "Une erreur est survenue lors de la mise à jour du produit",
+                        'Une erreur est survenue lors de la mise à jour du produit',
                 },
                 HttpStatus.NOT_FOUND,
             );

@@ -6,14 +6,14 @@ import { PrismaService } from 'src/prisma.service';
 @Injectable()
 export class ProductsService {
     constructor(private readonly prisma: PrismaService) {}
-    
+
     async create(createProductDto: CreateProductDto) {
         const product = await this.prisma.products.create({
             data: {
                 Name: createProductDto.name,
                 Description: createProductDto.description,
                 Price: createProductDto.price,
-                authorUUID: createProductDto.authorUUID
+                authorUUID: createProductDto.authorUUID,
             },
         });
 
@@ -24,8 +24,14 @@ export class ProductsService {
         return `This action returns all products`;
     }
 
-    findOne(id: number) {
-        return `This action returns a #${id} product`;
+    async getByUUID(uuid: string) {
+        const product = await this.prisma.products.findUnique({
+            where: {
+                UUID: uuid,
+            },
+        });
+
+        return product;
     }
 
     async updateByUUID(uuid: string, updateProductDto: UpdateProductDto) {
@@ -34,7 +40,7 @@ export class ProductsService {
                 Name: updateProductDto.name,
                 Description: updateProductDto.description,
                 Price: updateProductDto.price,
-                authorUUID: updateProductDto.authorUUID
+                authorUUID: updateProductDto.authorUUID,
             },
             where: {
                 UUID: uuid,
