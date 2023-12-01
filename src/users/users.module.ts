@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
-import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 import { PrismaService } from 'src/prisma.service';
+import { AuthService } from 'src/auth/auth.service';
+import { UsersService } from './users.service';
 
 @Module({
     controllers: [UsersController],
-    providers: [PrismaService, UsersService],
+    providers: [AuthService, PrismaService, UsersService],
+    exports: [UsersService],
 })
 export class UsersModule {}

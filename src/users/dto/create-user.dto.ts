@@ -34,10 +34,10 @@ export class CreateUserDto {
     @ApiProperty({
         description: "Mot de passe de l'utilisateur",
         required: true,
-        maximum: 50,
+        maximum: 60,
     })
     @IsString()
     @IsNotEmpty()
-    @MaxLength(50)
+    @MaxLength(60)
     password: string;
 }

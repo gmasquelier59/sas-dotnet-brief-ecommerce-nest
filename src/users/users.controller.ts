@@ -29,7 +29,7 @@ export class UsersController {
         } catch (error) {
             throw new HttpException(
                 {
-                    data: '',
+                    data: error,
                     message:
                         "Utilisateur non créé. Les données fournies ne sont peut-être pas valides, ou une autre erreur s'est produite",
                 },
