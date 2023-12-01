@@ -58,12 +58,32 @@ export class ProductsController {
         return this.productsService.findOne(+id);
     }
 
-    @Patch(':id')
-    update(
-        @Param('id') id: string,
+    @Patch(':uuid')
+    @ApiOperation({ description: 'Met à jour un produit depuis son UUID' })
+    async updateByUUID(
+        @Param('uuid') uuid: string,
         @Body() updateProductDto: UpdateProductDto,
     ) {
-        return this.productsService.update(+id, updateProductDto);
+        try {
+            let product = await this.productsService.updateByUUID(
+                uuid,
+                updateProductDto,
+            );
+
+            return JSONResponse.toJSON(
+                "Données du produit mises à jour avec succès",
+                product,
+            );
+        } catch (error) {
+            throw new HttpException(
+                {
+                    data: error,
+                    message:
+                        "Une erreur est survenue lors de la mise à jour du produit",
+                },
+                HttpStatus.NOT_FOUND,
+            );
+        }
     }
 
     @Delete(':id')
