@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from 'src/prisma.service';
@@ -14,7 +14,7 @@ export class UsersService {
                 Mail: createUserDto.mail,
             },
         });
-        
+
         return user;
     }
 
@@ -25,7 +25,7 @@ export class UsersService {
     }
 
     async getByUUID(uuid: string) {
-        const user = this.prisma.users.findUnique({
+        const user = await this.prisma.users.findUnique({
             where: {
                 UUID: uuid,
             },
@@ -38,7 +38,7 @@ export class UsersService {
         const user = await this.prisma.users.update({
             data: {
                 Pseudo: updateUserDto.pseudo,
-                Mail: updateUserDto.mail
+                Mail: updateUserDto.mail,
             },
             where: {
                 UUID: uuid,
