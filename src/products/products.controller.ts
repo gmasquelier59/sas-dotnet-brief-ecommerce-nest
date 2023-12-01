@@ -104,8 +104,24 @@ export class ProductsController {
         }
     }
 
-    @Delete(':id')
-    remove(@Param('id') id: string) {
-        return this.productsService.remove(+id);
+    @Delete(':uuid')
+    @ApiOperation({ description: 'Supprime un produit depuis son UUID' })
+    async deleteByUUID(@Param('uuid') uuid: string) {
+        try {
+            let product = await this.productsService.deleteByUUID(uuid);
+
+            return JSONResponse.toJSON(
+                'Produit supprimé avec succès',
+                product,
+            );
+        } catch (error) {
+            throw new HttpException(
+                {
+                    data: '',
+                    message: "Le produit spécifié n'existe pas",
+                },
+                HttpStatus.NOT_FOUND,
+            );
+        }
     }
 }

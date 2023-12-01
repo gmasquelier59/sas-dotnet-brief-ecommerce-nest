@@ -50,7 +50,13 @@ export class ProductsService {
         return product;
     }
 
-    remove(id: number) {
-        return `This action removes a #${id} product`;
+    async deleteByUUID(uuid: string) {
+        const product = this.prisma.products.delete({
+            where: {
+                UUID: uuid,
+            },
+        });
+
+        return product;
     }
 }
