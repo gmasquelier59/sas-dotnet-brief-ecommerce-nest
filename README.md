@@ -13,12 +13,15 @@ Notre API est consommable via HTTP (ou HTTPS si un certificat SSL est installé)
 
 # Technologies
 
-<img alt="TypeScript" src="https://img.shields.io/badge/-TypeScript-006d77?style=flat-square&logo=typescript&logoColor=white" />
-<img alt="Node.js" src="https://img.shields.io/badge/-Node.js-006d77?style=flat-square&logo=node.js&logoColor=white" />
-<img alt="NestJs" src="https://img.shields.io/badge/-NestJs-006d77?style=flat-square&logo=nestjs&logoColor=white" />
-<img alt="Swagger" src="https://img.shields.io/badge/-Swagger-006d77?style=flat-square&logo=swagger&logoColor=white" />
-
-<img alt="PostegreSql" src="https://img.shields.io/badge/-PostgreSql-83c5be?style=flat-square&logo=postgresql&logoColor=white" />
+<p>
+    <img alt="TypeScript" src="https://img.shields.io/badge/-TypeScript-006d77?style=flat-square&logo=typescript&logoColor=white" />
+    <img alt="Node.js" src="https://img.shields.io/badge/-Node.js-006d77?style=flat-square&logo=node.js&logoColor=white" />
+    <img alt="NestJs" src="https://img.shields.io/badge/-NestJs-006d77?style=flat-square&logo=nestjs&logoColor=white" />
+    <img alt="Swagger" src="https://img.shields.io/badge/-Swagger-006d77?style=flat-square&logo=swagger&logoColor=white" />
+</p>
+<p>
+    <img alt="PostegreSql" src="https://img.shields.io/badge/-PostgreSql-83c5be?style=flat-square&logo=postgresql&logoColor=white" />
+</p>
 
 ## Installation
 
