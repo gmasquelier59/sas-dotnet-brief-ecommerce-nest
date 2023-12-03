@@ -20,5 +20,7 @@ model Users {
   UUID     String     @id(map: "users_uuid") @unique() @default(uuid()) @db.VarChar(36) //UUIDv4
   Pseudo   String     @unique() @db.VarChar(50)
   Mail     String     @unique() @db.VarChar(75)
+  Username String     @unique() @db.VarChar(20)
+  Password String     @db.VarChar(60)
   Products Products[]
 }

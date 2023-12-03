@@ -1,0 +1,7 @@
+{
+    "explorer.compactFolders": true,
+    "explorer.excludeGitIgnore": false,
+    "explorer.expandSingleFolderWorkspaces": true,
+    "explorer.fileNesting.enabled": false,
+    "workbench.tree.indent": 32
+}
