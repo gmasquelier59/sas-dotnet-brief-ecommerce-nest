@@ -1,6 +1,20 @@
 # API de notre boutique "AuBonTroc"
 
-# Présentation
+## Table des matières
+
+<ul>
+    <li><a href="#contexte">Contexte</a></li>
+    <li><a href="#présentation">Présentation</a></li>
+    <li><a href="#technologies">Technologies</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#documentation-de-lapi">Documentation de l'API</a></li>
+</ul>
+
+## Contexte
+
+Ce repo a été créé dans le cadre de la formation "Développeur .Net" avec Simplon & M2I en novembre 2023.
+
+## Présentation
 
 Ce repo contient le code source de l'API de notre boutique en ligne "AuBonTroc".
 
@@ -11,7 +25,7 @@ Notre API permet :
 
 Notre API est consommable via HTTP (ou HTTPS si un certificat SSL est installé), en utilisant les verbes HTTP adéquoits (``GET``, ``POST``, ``PATCH``, ``DELETE``).
 
-# Technologies
+## Technologies
 
 <p>
     <img alt="TypeScript" src="https://img.shields.io/badge/-TypeScript-006d77?style=flat-square&logo=typescript&logoColor=white" />
